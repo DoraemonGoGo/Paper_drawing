@@ -4,7 +4,7 @@ import pandas as pd
 file_type = '.xlsx'
 measure_value = '主要任务错误率'
 task_type = 'Low'
-file_path = 'E:/Desktop/Study1_Data/' + task_type + ' Task/' + measure_value + task_type  # 替换为你的Excel文件路径
+file_path = 'E:/Desktop/paper/Study1_Data/' + task_type + ' Task/' + measure_value + task_type  # 替换为你的Excel文件路径
 df = pd.read_excel(file_path + file_type)
 
 # 按实验人员、角度和效果进行排序（确保数据顺序正确）

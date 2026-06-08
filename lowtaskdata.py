@@ -88,6 +88,6 @@ def save_statistics_to_csv(directory, output_file):
 
 
 # 调用函数并保存结果
-directory_path = 'E:\\Desktop\\pycharm-study'  # 替换为包含CSV文件的目录路径
-output_file = 'E:\\Desktop\\pycharm-study\\lowstatistic.csv'
+directory_path = 'E:\\Desktop\\paper\\pycharm-study'  # 替换为包含CSV文件的目录路径
+output_file = 'E:\\Desktop\\paper\\pycharm-study\\lowstatistic.csv'
 save_statistics_to_csv(directory_path, output_file)

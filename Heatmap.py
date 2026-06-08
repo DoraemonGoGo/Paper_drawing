@@ -6,7 +6,7 @@ from scipy.stats import gaussian_kde
 from matplotlib.colors import Normalize
 
 # 读取CSV文件
-data = pd.read_csv('E:/Desktop/Study2_Data/merged_files/merged_eye_tracking_data_HighTask_cameraTrack.csv')
+data = pd.read_csv('E:/Desktop/paper/Study2_Data/merged_files/merged_eye_tracking_data_HighTask_cameraTrack.csv')
 
 # 删除第四列中大于1的行
 data = data[data['distance'] <= 1]

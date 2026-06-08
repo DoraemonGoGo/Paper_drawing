@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # 替换为你的文件路径
-file_path = "E:/Desktop/Study2_Data/NASA_TLX.xlsx"  # 替换为实际的文件路径
+file_path = "E:/Desktop/paper/Study2_Data/NASA_TLX.xlsx"  # 替换为实际的文件路径
 
 # 读取 Excel 文件
 df = pd.read_excel(file_path)
@@ -76,6 +76,6 @@ ax.legend(loc='upper left', fontsize=15, frameon=False, ncol=3)
 plt.tight_layout()
 
 # 保存为矢量图
-plt.savefig("E:/Desktop/Study2_Data/nasa_tlx_with_total.jpg", format="jpg", dpi=300)  # 保存为 SVG 矢量图格式
+plt.savefig("E:/Desktop/paper/Study2_Data/nasa_tlx_with_total.pdf", format="pdf", dpi=300)  # 保存为 SVG 矢量图格式
 
 plt.show()

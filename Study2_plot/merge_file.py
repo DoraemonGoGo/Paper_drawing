@@ -37,12 +37,11 @@ def merge_files_by_name(folders, file_names, output_folder):
             print(f"没有找到任何文件进行合并：{file_name}")
 
 # 示例用法
-folders = ['E:/Desktop/Study2_Data/吴昌坤5-9.10', 'E:/Desktop/Study2_Data/张博宣6-9.10',
-           'E:/Desktop/Study2_Data/田家明7-9.11', 'E:/Desktop/Study2_Data/高星8-9.12',
-           'E:/Desktop/Study2_Data/马康硕9-9.13']  # 替换为实际的文件夹路径
+folders = ['E:/Desktop/paper/Study2_Data/吴昌坤5-9.10', 'E:/Desktop/paper/Study2_Data/张博宣6-9.10',
+           'E:/Desktop/paper/Study2_Data/田家明7-9.11', 'E:/Desktop/paper/Study2_Data/高星8-9.12',
+           'E:/Desktop/paper/Study2_Data/马康硕9-9.13']  # 替换为实际的文件夹路径
 file_names = ['eye_tracking_data_HighTask_Blink.csv', 'eye_tracking_data_HighTask_cameraTrack.csv',
               'eye_tracking_data_HighTask_iconDisplay.csv', 'eye_tracking_data_LowTask_Blink.csv',
               'eye_tracking_data_LowTask_cameraTrack.csv', 'eye_tracking_data_LowTask_iconDisplay.csv']  # 替换为实际的文件名列表
-output_folder = 'E:/Desktop/Study2_Data/merged_files'  # 合并文件的输出文件夹
-
+output_folder = 'E:/Desktop/paper/Study2_Data/merged_files'  # 合并文件的输出文件夹
 merge_files_by_name(folders, file_names, output_folder)

@@ -76,6 +76,6 @@ def store_data_in_target_file(directory, target_file):
 
 
 # 调用函数并存储数据
-directory_path = 'E:\\Desktop\\pycharm-study2'  # 替换为包含CSV文件的目录路径
-target_file = 'E:\\Desktop\\pycharm-study2\\target_file_high.csv'  # 替换为目标文件的路径
+directory_path = 'E:\\Desktop\\paper\\pycharm-study2'  # 替换为包含CSV文件的目录路径
+target_file = 'E:\\Desktop\\paper\\pycharm-study2\\target_file_high.csv'  # 替换为目标文件的路径
 store_data_in_target_file(directory_path, target_file)

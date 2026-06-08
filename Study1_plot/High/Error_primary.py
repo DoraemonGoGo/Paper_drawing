@@ -4,7 +4,7 @@ from scipy import stats  # 用于计算标准误差
 
 file_name = "主错误率High"
 # 假设你的文件名是 "data.xlsx"，请替换为你的实际文件名和路径
-file_path = "E:/Desktop/Study1_Data/High Task/" + file_name + ".xlsx"
+file_path = "E:/Desktop/paper/Study1_Data/High Task/" + file_name + ".xlsx"
 
 # 读取Excel文件
 df = pd.read_excel(file_path)
@@ -29,10 +29,12 @@ x_shifted_left = [i - 0.05 for i in range(len(x))]  # 左移一组
 x_shifted_right = [i + 0.05 for i in range(len(x))]  # 右移一组
 
 # 绘制25度角数据
-ax.errorbar(x_shifted_left, mean_df.loc[25], yerr=std_df.loc[25], fmt='o-', capsize=4, label='25', color='#2DA2FE')
+# ax.errorbar(x_shifted_left, mean_df.loc[25], yerr=std_df.loc[25], fmt='o-', capsize=4, label='25', color='#2DA2FE')
+ax.errorbar(x_shifted_left, mean_df.loc[25], yerr=std_df.loc[25], fmt='o-', capsize=4, label='25', color='#1f77b4')
 
 # 绘制45度角数据
-ax.errorbar(x_shifted_right, mean_df.loc[45], yerr=std_df.loc[45], fmt='o-', capsize=4, label='45', color='#23D96E')
+# ax.errorbar(x_shifted_right, mean_df.loc[45], yerr=std_df.loc[45], fmt='o-', capsize=4, label='45', color='#23D96E')
+ax.errorbar(x_shifted_right, mean_df.loc[45], yerr=std_df.loc[45], fmt='s-', capsize=4, label='45', color='#ff7f0e')
 
 # 调整Y轴范围，使最低点为 0.5
 ax.set_ylim(0.2, 0.45)  # 使最大值自动适应数据
@@ -61,7 +63,7 @@ ax.spines['right'].set_visible(False)
 
 
 # 设置标题和Y轴标签
-ax.set_title('ER(Primary Task,Heavy)', fontsize=12)
+ax.set_title('ER(Primary Task,High)', fontsize=12)
 ax.set_ylabel('Error Rate', fontsize=12)
 # ax.set_ylim(0, max(mean_df.max()) + 1)  # 调整Y轴范围
 
@@ -69,7 +71,7 @@ ax.set_ylabel('Error Rate', fontsize=12)
 ax.legend(loc='upper right', fontsize=12, frameon=False, bbox_to_anchor=(1, 1))
 
 # 保存为矢量图
-plt.savefig("E:/Desktop/Study1_Data/High Task/" + file_name + ".jpg", format="jpg", bbox_inches='tight', dpi=300)  # 保存为 SVG 矢量图格式
+plt.savefig("E:/Desktop/paper/Study1_Data/High Task/" + file_name + ".jpg", format="jpg", bbox_inches='tight', dpi=300)  # 保存为 SVG 矢量图格式
 
 # 显示图表
 plt.tight_layout()

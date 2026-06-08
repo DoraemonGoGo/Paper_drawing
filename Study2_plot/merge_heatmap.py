@@ -6,6 +6,10 @@ from scipy.stats import gaussian_kde
 from matplotlib.colors import Normalize
 import os
 
+# 设置中文字体
+plt.rcParams['font.sans-serif'] = ['SimSun']  # 用来正常显示中文标签
+plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+
 def plot_low_and_high(low_folder, high_folder):
     # 取各自文件列表（最多3个）
     low_files  = [f for f in os.listdir(low_folder)  if f.endswith('.csv')][:3]
@@ -48,12 +52,12 @@ def plot_low_and_high(low_folder, high_folder):
     # 第一行：LowTask
     for col, fname in enumerate(low_files):
         ax = axes[0, col]
-        draw_kde(ax, os.path.join(low_folder, fname), title=f"Low – {fname[:-4]}")
+        draw_kde(ax, os.path.join(low_folder, fname), title=f"低负荷 – {fname[:-4]}")
 
     # 第二行：HighTask
     for col, fname in enumerate(high_files):
         ax = axes[1, col]
-        draw_kde(ax, os.path.join(high_folder, fname), title=f"High – {fname[:-4]}")
+        draw_kde(ax, os.path.join(high_folder, fname), title=f"高负荷 – {fname[:-4]}")
 
     # 整体 colorbar
     sm = plt.cm.ScalarMappable(cmap="Reds", norm=norm)
@@ -62,10 +66,10 @@ def plot_low_and_high(low_folder, high_folder):
         sm, ax=axes.ravel().tolist(),
         orientation='vertical', fraction=0.02, pad=0.04
     )
-    cbar.set_label('Density', fontsize=26)
+    cbar.set_label('密度', fontsize=26)
     cbar.ax.tick_params(labelsize=24)
 
-    plt.savefig(r"E:/Desktop/Study2_Data/merged_files/heatmap_comparison.jpg",
+    plt.savefig(r"E:/Desktop/paper/Study2_Data/merged_files/heatmap_comparison.jpg",
                 dpi=300, bbox_inches='tight')
 
     plt.show()
@@ -73,6 +77,6 @@ def plot_low_and_high(low_folder, high_folder):
 
 # 调用示例
 plot_low_and_high(
-    'E:/Desktop/Study2_Data/merged_files/LowTask',
-    'E:/Desktop/Study2_Data/merged_files/HighTask'
+    'E:/Desktop/paper/Study2_Data/merged_files/LowTask',
+    'E:/Desktop/paper/Study2_Data/merged_files/HighTask'
 )

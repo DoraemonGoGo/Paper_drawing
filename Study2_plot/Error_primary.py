@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # 读取CSV文件
-file_path = 'E:/Desktop/Study2_Data/error.xlsx'  # 请替换为实际文件名
+file_path = 'E:/Desktop/paper/Study2_Data/error.xlsx'  # 请替换为实际文件名
 df = pd.read_excel(file_path)
 
 # 计算每种条件和负荷下的平均Recall、标准差(SD)和标准误差(SE)
@@ -31,14 +31,18 @@ offset = 0.1
 conditions = np.arange(len(average_recall['显示方式'].unique()))
 
 # 自定义颜色
-colors = {'Heavy': '#2DA2FE', 'Light': '#23D96E'}
+# colors = {'Heavy': '#2DA2FE', 'Light': '#23D96E'}
+colors = {'Heavy': '#1f77b4', 'Light': '#ff7f0e'}
+markers = {'Heavy': 'o', 'Light': 's'}
 
 # 为Heavy和Light的平均Recall绘制两条折线，并添加误差线
+label_map = {'Heavy': 'High', 'Light': 'Low'}
 for i, load in enumerate(['Heavy', 'Light']):
     subset = average_recall[average_recall['负荷'] == load]
     # 计算偏移后的x轴位置
     x_positions = conditions + (i - 0.5) * offset
-    plt.errorbar(x_positions, subset['mean'], yerr=subset['sem'], marker='o', label=load, capsize=5, color=colors[load])
+    # plt.errorbar(x_positions, subset['mean'], yerr=subset['sem'], marker='o', label=load, capsize=5, color=colors[load])
+    plt.errorbar(x_positions, subset['mean'], yerr=subset['sem'], marker=markers[load], label=label_map[load], capsize=5, color=colors[load])
 
 # 调整Y轴范围，使最低点为 0.5
 ax.set_ylim(0, 0.4)  # 使最大值自动适应数据
@@ -76,12 +80,12 @@ ax.spines['right'].set_visible(False)
 ax.legend(loc='upper right', frameon=False)
 
 # 保存为矢量图
-plt.savefig("E:/Desktop/Study2_Data/error.jpg", format="jpg", bbox_inches='tight', dpi=300)  # 保存为 SVG 矢量图格式
+plt.savefig("E:/Desktop/paper/Study2_Data/error.jpg", format="jpg", bbox_inches='tight', dpi=300)  # 保存为 SVG 矢量图格式
 
 # 显示图表
 plt.grid(False)
 # 调整布局，确保边距足够显示
 plt.tight_layout()
-plt.show(bbox_inches='tight')
+plt.show()
 
 

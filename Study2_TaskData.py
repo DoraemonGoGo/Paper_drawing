@@ -63,5 +63,5 @@ def process_files_in_folder(folder_path):
 
 
 # 使用方法
-folder_path = 'E:\\Desktop\\pycharm-study'  # 替换成实际文件夹路径
+folder_path = 'E:\\Desktop\\paper\\pycharm-study'  # 替换成实际文件夹路径
 process_files_in_folder(folder_path)

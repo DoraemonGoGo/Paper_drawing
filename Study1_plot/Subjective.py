@@ -4,7 +4,7 @@ import numpy as np
 
 file_name = "likert"
 # 假设你的文件名是 "data.xlsx"，请替换为你的实际文件名和路径
-file_path = "E:/Desktop/Study1_Data/" + file_name + ".xlsx"
+file_path = "E:/Desktop/paper/Study1_Data/" + file_name + ".xlsx"
 
 df = pd.read_excel(file_path)
 
@@ -42,13 +42,16 @@ width = 0.2
 fig, ax = plt.subplots(figsize=(10, 5))
 
 # 绘制可察觉性条形图
-ax.bar(x - width, mean_df['可察觉性'], width, label='Noticeability', yerr=sem_df['可察觉性'], capsize=5, color='#2DA2FE', alpha=0.7)
+# ax.bar(x - width, mean_df['可察觉性'], width, label='Noticeability', yerr=sem_df['可察觉性'], capsize=5, color='#2DA2FE', alpha=0.7)
+ax.bar(x - width, mean_df['可察觉性'], width, label='Noticeability', yerr=sem_df['可察觉性'], capsize=5, color='#1f77b4', alpha=0.9)
 
 # 绘制舒适度条形图
-ax.bar(x, mean_df['舒适度'], width, label='Comfortability', yerr=sem_df['舒适度'], capsize=5, color='#23D96E', alpha=0.7)
+# ax.bar(x, mean_df['舒适度'], width, label='Comfortability', yerr=sem_df['舒适度'], capsize=5, color='#23D96E', alpha=0.7)
+ax.bar(x, mean_df['舒适度'], width, label='Comfortability', yerr=sem_df['舒适度'], capsize=5, color='#2ca02c', alpha=0.9)
 
 # 绘制感知效果条形图
-ax.bar(x + width, mean_df['感知效果'], width, label='Perceived effectiveness', yerr=sem_df['感知效果'], capsize=5, color='#FFBA60', alpha=0.7)
+# ax.bar(x + width, mean_df['感知效果'], width, label='Perceived effectiveness', yerr=sem_df['感知效果'], capsize=5, color='#FFBA60', alpha=0.7)
+ax.bar(x + width, mean_df['感知效果'], width, label='Perceived effectiveness', yerr=sem_df['感知效果'], capsize=5, color='#ff7f0e', alpha=0.9)
 
 # 设置X轴标签
 ax.set_xticks(x)
@@ -68,7 +71,7 @@ ax.spines['right'].set_visible(False)
 ax.legend(loc='upper right', fontsize=13, frameon=False)
 
 # 保存为矢量图
-plt.savefig("E:/Desktop/Study1_Data/" + file_name + ".jpg", format="jpg", bbox_inches='tight', dpi=300)  # 保存为 SVG 矢量图格式
+plt.savefig("E:/Desktop/paper/Study1_Data/" + file_name + ".jpg", format="jpg", bbox_inches='tight', dpi=300)  # 保存为 SVG 矢量图格式
 
 # 显示图表
 plt.tight_layout()

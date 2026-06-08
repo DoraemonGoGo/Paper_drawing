@@ -6,6 +6,10 @@ from scipy.stats import gaussian_kde
 from matplotlib.colors import Normalize
 import os
 
+plt.rcParams['font.sans-serif'] = ['SimSun']  # 或者 'Microsoft YaHei'
+plt.rcParams['axes.unicode_minus'] = False
+plt.rcParams['mathtext.fontset'] = 'stix'
+
 
 def plot_heatmaps(folder):
     """
@@ -71,17 +75,17 @@ def plot_heatmaps(folder):
 
         # 绘制热力图
         ax = axes[i]
-        sns.kdeplot(x=x_filtered, y=y_filtered, cmap="Reds", fill=True, bw_adjust=.5, ax=ax)
-        ax.set_title(f'{file_name[:-4]}', fontsize=18)
+        sns.kdeplot(x=x_filtered, y=y_filtered, cmap="rocket_r", fill=True, bw_adjust=.5, ax=ax)
+        ax.set_title(f'{file_name[:-4]}', fontsize=22)
         ax.set_xlim(-8, 8)
         ax.set_ylim(0, 8)
         # ax.invert_yaxis()  # 反转Y轴
 
         # 设置刻度字体大小和轴标签字体大小
-        ax.tick_params(axis='x', labelsize=18)  # 设置 x 轴刻度字体大小
-        ax.tick_params(axis='y', labelsize=18)  # 设置 y 轴刻度字体大小
-        ax.set_xlabel('X', fontsize=18)  # 设置 x 轴标签和字体大小
-        ax.set_ylabel('Y', fontsize=18)  # 设置 y 轴标签和字体大小
+        ax.tick_params(axis='x', labelsize=22)  # 设置 x 轴刻度字体大小
+        ax.tick_params(axis='y', labelsize=22)  # 设置 y 轴刻度字体大小
+        ax.set_xlabel('X', fontsize=22)  # 设置 x 轴标签和字体大小
+        ax.set_ylabel('Y', fontsize=22)  # 设置 y 轴标签和字体大小
 
         # 在每个子图上添加x=-4和y=2的蓝色虚线
         # ax.axvline(x=-5, color='#2DA2FE', linestyle='--', label='x = -4')  # 垂直虚线
@@ -102,23 +106,24 @@ def plot_heatmaps(folder):
         fig.delaxes(axes[j])
 
     # 添加整体的颜色条
-    sm = plt.cm.ScalarMappable(cmap="Reds", norm=norm)
+    sm = plt.cm.ScalarMappable(cmap="rocket_r", norm=norm)
     sm.set_array([])
     cbar = fig.colorbar(sm, ax=axes, orientation='vertical', fraction=0.02, pad=0.04)
-    cbar.set_label('Density', fontsize=18)
-    cbar.ax.tick_params(labelsize=18)  # 控制颜色条刻度字体大小
+    cbar.set_label('密度', fontsize=22)
+    cbar.ax.tick_params(labelsize=22)  # 控制颜色条刻度字体大小
 
     # 设置整体图表的标题
     # plt.suptitle('Heatmaps of Eye Gaze Data(Heavy Task)', fontsize=18)
     # plt.tight_layout(rect=[0, 0, 1, 0.96])  # 调整布局
+    fig.supxlabel('(b) 重负荷', fontsize=26)
 
     # 保存为矢量图
-    plt.savefig("E:/Desktop/Study2_Data/merged_files/heatmap_high.jpg", format="jpg",
-                bbox_inches='tight', dpi=300)  # 保存为 SVG 矢量图格式
+    plt.savefig("E:/Desktop/paper/Study2_Data/merged_files/heatmap_high.png", format="png",
+                bbox_inches='tight', dpi=300)  # 保存为 PNG 图片格式
 
     # 显示图表
     plt.show()
 
 # 示例用法
-folder = 'E:/Desktop/Study2_Data/merged_files/HighTask'  # 替换为实际的文件夹路径
+folder = 'E:/Desktop/paper/Study2_Data/merged_files/HighTask'  # 替换为实际的文件夹路径
 plot_heatmaps(folder)

@@ -1,8 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# plt.rcParams['font.sans-serif'] = ['SimSun']  # 用来正常显示中文标签
+# plt.rcParams['axes.unicode_minus'] = False    # 用来正常显示负号
+
 # 替换为你的文件路径
-file_path = "E:/Desktop/Study2_Data/nasa_tlx_with_total.xlsx"  # 替换为实际的文件路径
+file_path = "E:/Desktop/paper/Study2_Data/nasa_tlx_with_total.xlsx"  # 替换为实际的文件路径
 
 # 读取 Excel 文件
 df = pd.read_excel(file_path)
@@ -20,7 +23,8 @@ x = range(len(mean_values))
 
 # 条形图的标签和颜色
 labels = ['Graded', 'Head-up', 'Icon']
-colors = ['#2DA2FE', '#23D96E', '#FFBA60']
+# colors = ['#2DA2FE', '#23D96E', '#FFBA60']
+colors = ['#1f77b4', '#2ca02c', '#ff7f0e']
 
 # 绘制条形图
 fig, ax = plt.subplots(figsize=(4, 5))
@@ -34,7 +38,7 @@ for i in range(len(mean_values)):
         yerr=se_values.iloc[i],  # 使用标准差作为误差线
         capsize=5,  # 设置误差线的端点长度
         color=colors[i],  # 单一颜色值
-        alpha=0.7,  # 设置透明度
+        alpha=0.9,  # 设置透明度
     )
 
 # 调整Y轴范围，使最低点为 0.5
@@ -75,8 +79,8 @@ ax.spines['right'].set_visible(False)
 # ax.set_xlabel('Condition', fontsize=12)
 ax.set_ylabel('Score', fontsize=14)
 
-# 保存为 SVG 文件
-plt.savefig("E:/Desktop/Study2_Data/NASA_TLX.jpg", format="jpg", bbox_inches='tight', dpi=300)  # 保存为 SVG 格式
+# 保存为 JPG 文件
+plt.savefig("E:/Desktop/paper/Study2_Data/NASA_TLX.jpg", format="jpg", bbox_inches='tight', dpi=300)  # 保存为 JPG 格式
 
 # 调整图表布局并显示
 plt.tight_layout()

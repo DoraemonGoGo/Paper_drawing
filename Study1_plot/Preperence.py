@@ -46,8 +46,10 @@ def create_stacked_bar_chart_from_excel(excel_file):
         bottom = avg - rating_proportions[i].sum() / 2 # 保证条形围绕平均值分布
 
         # 定义颜色
-        colors = ['#d9ead3', '#b6d7a8', '#93c47d', '#6aa84f', '#38761d', '#274e13']
-
+        # colors = ['#d9ead3', '#b6d7a8', '#93c47d', '#6aa84f', '#38761d', '#274e13']
+        # 统一使用橙色系
+        colors = ['#feedde', '#fdd0a2', '#fdae6b', '#fd8d3c', '#e6550d', '#a63603']
+        
         # 绘制每个组合的条形图，包含6个不同颜色
         for j in range(6):
             ax.barh(i, rating_proportions[i, j], left=bottom, color=colors[j], label=f'{j+1}' if i == 0 else "")
@@ -81,9 +83,9 @@ def create_stacked_bar_chart_from_excel(excel_file):
     fig.subplots_adjust(bottom=0.14)  # 增加图形底部边距
 
     # 保存为矢量图
-    plt.savefig("E:/Desktop/Study1_Data/Preference.jpg", format="jpg", bbox_inches='tight', dpi=300)  # 保存为 SVG 矢量图格式
+    plt.savefig("E:/Desktop/paper/Study1_Data/Preference.jpg", format="jpg", bbox_inches='tight', dpi=300)  # 保存为 SVG 矢量图格式
 
     plt.show()
 
 # 使用方法
-create_stacked_bar_chart_from_excel('E:/Desktop/Study1_Data/preference.xlsx')
+create_stacked_bar_chart_from_excel('E:/Desktop/paper/Study1_Data/preference.xlsx')
